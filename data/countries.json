@@ -1,0 +1,2018 @@
+{
+ "updated": "2026-11-11",
+ "source": "ADAC (adac.de) – Maut & Vignette, Reiseziele/Fahrzeug, Tanken & Laden",
+ "countries": {
+  "DE": {
+   "name": "Deutschland",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "100 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.98,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.22,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Einfache Fahrt",
+     "price": 2.3,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Winter (1.11.-30.4.)",
+     "price": 4.4,
+     "currency": "EUR",
+     "group": "Warnowtunnel"
+    },
+    {
+     "name": "Sommer (1.5.-31.10.)",
+     "price": 5.4,
+     "currency": "EUR",
+     "group": "Warnowtunnel"
+    },
+    {
+     "name": "ganzjährig mit Sendegerät oder Bezahlkarte",
+     "price": 3.49,
+     "currency": "EUR",
+     "group": "Warnowtunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/deutschland/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/deutschland/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/deutschland/tanken-laden/"
+   }
+  },
+  "AT": {
+   "name": "Österreich",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "100 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.75,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.15,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "einfache Fahrt",
+     "price": 13.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Bosrucktunnel",
+     "price": 7.0,
+     "currency": "EUR",
+     "group": "Bosrucktunnel"
+    },
+    {
+     "name": "Pyhrn gesamt (Gleinalm- und Bosrucktunnel)",
+     "price": 19.0,
+     "currency": "EUR",
+     "group": "Bosrucktunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 13.5,
+     "currency": "EUR",
+     "group": "Felbertauerntunnel"
+    },
+    {
+     "name": "ADAC Vorverkaufsticket (Hin- und Rückfahrt)",
+     "price": 24.0,
+     "currency": "EUR",
+     "group": "Felbertauerntunnel"
+    },
+    {
+     "name": "Gleinalmtunnel",
+     "price": 12.0,
+     "currency": "EUR",
+     "group": "Gleinalmtunnel"
+    },
+    {
+     "name": "Pyhrn gesamt (Gleinalm- und Bosrucktunnel)",
+     "price": 19.0,
+     "currency": "EUR",
+     "group": "Gleinalmtunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 9.0,
+     "currency": "EUR",
+     "group": "Karawankentunnel"
+    },
+    {
+     "name": "Gesamtstrecke, jede Fahrt über die Hauptmautstelle (Tauern- und Katschbergtunnel)",
+     "price": 15.0,
+     "currency": "EUR",
+     "group": "Tauernautobahn"
+    },
+    {
+     "name": "St. Michael - Rennweg und umgekehrt (Katschbergtunnel)",
+     "price": 7.5,
+     "currency": "EUR",
+     "group": "Tauernautobahn"
+    },
+    {
+     "name": "St. Michael - Flachau und umgekehrt (Tauerntunnel)",
+     "price": 7.5,
+     "currency": "EUR",
+     "group": "Tauernautobahn"
+    },
+    {
+     "name": "Zedernhaus - Flachau und umgekehrt (Tauerntunnel)",
+     "price": 7.5,
+     "currency": "EUR",
+     "group": "Tauernautobahn"
+    },
+    {
+     "name": "Innsbruck - Brennerpass und umgekehrt",
+     "price": 12.5,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Zenzenhof / Staatsgrenze Italien - Brennersee und umgekehrt",
+     "price": 1.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Patsch / Staatsgrenze Italien - Nösslach und umgekehrt",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Stubaital und umgekehrt",
+     "price": 4.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Matrei - Brennerpass und umgekehrt",
+     "price": 6.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Tageskarte",
+     "price": 13.0,
+     "currency": "EUR",
+     "group": "Gerlos Alpenstraße"
+    },
+    {
+     "name": "Tageskarte Elektro-/Wasserstofffahrzeuge",
+     "price": 12.0,
+     "currency": "EUR",
+     "group": "Gerlos Alpenstraße"
+    },
+    {
+     "name": "Tageskarte",
+     "price": 46.5,
+     "currency": "EUR",
+     "group": "Großglockner Hochalpenstraße"
+    },
+    {
+     "name": "ADAC Vorverkaufspreis",
+     "price": 41.5,
+     "currency": "EUR",
+     "group": "Großglockner Hochalpenstraße"
+    },
+    {
+     "name": "Tageskarte Elektro-/Wasserstofffahrzeuge",
+     "price": 40.0,
+     "currency": "EUR",
+     "group": "Großglockner Hochalpenstraße"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 20.0,
+     "currency": "EUR",
+     "group": "Timmelsjoch"
+    },
+    {
+     "name": "Hin- und Rückfahrt",
+     "price": 28.0,
+     "currency": "EUR",
+     "group": "Timmelsjoch"
+    },
+    {
+     "name": "Einfache Fahrt inkl. Personen",
+     "price": 26.0,
+     "currency": "EUR",
+     "group": "Autoverladungen"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "1-Tages-Vignette",
+     "days": 1,
+     "price": 9.6,
+     "currency": "EUR",
+     "year": 2026
+    },
+    {
+     "label": "10-Tages-Vignette",
+     "days": 10,
+     "price": 12.8,
+     "currency": "EUR",
+     "year": 2026
+    },
+    {
+     "label": "2-Monats-Vignette",
+     "days": 60,
+     "price": 32.0,
+     "currency": "EUR",
+     "year": 2026
+    },
+    {
+     "label": "Jahres-Vignette",
+     "days": 365,
+     "price": 106.8,
+     "currency": "EUR",
+     "year": 2026
+    },
+    {
+     "label": "1-Tages-Vignette",
+     "days": 1,
+     "price": 9.8,
+     "currency": "EUR",
+     "year": 2027
+    },
+    {
+     "label": "10-Tages-Vignette",
+     "days": 10,
+     "price": 13.0,
+     "currency": "EUR",
+     "year": 2027
+    },
+    {
+     "label": "2-Monats-Vignette",
+     "days": 60,
+     "price": 32.6,
+     "currency": "EUR",
+     "year": 2027
+    },
+    {
+     "label": "Jahres-Vignette",
+     "days": 365,
+     "price": 108.9,
+     "currency": "EUR",
+     "year": 2027
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/oesterreich/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/oesterreich/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/oesterreich/tanken-laden/"
+   }
+  },
+  "CH": {
+   "name": "Schweiz",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.33,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.63,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Einfache Fahrt",
+     "price": 32.0,
+     "currency": "CHF",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt",
+     "price": 51.0,
+     "currency": "CHF",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt, Sommerpreise (Mai-November)",
+     "price": 17.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt, Sommerpreise (Mai-November)",
+     "price": 28.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt, Winterpreise (Dezember-April)",
+     "price": 25.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt, Winterpreise (Dezember-April)",
+     "price": 42.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt inkl. Personen",
+     "price": 33.0,
+     "currency": "CHF",
+     "group": "Autoverladungen"
+    },
+    {
+     "name": "Mo-Do (einfache Fahrt inkl. Personen)",
+     "price": 28.0,
+     "currency": "CHF",
+     "group": "Lötschberg-Autoverladung"
+    },
+    {
+     "name": "Fr-So, allg. Fei (einfache Fahrt inkl. Personen)",
+     "price": 31.0,
+     "currency": "CHF",
+     "group": "Lötschberg-Autoverladung"
+    },
+    {
+     "name": "Kombiticket Lötschberg- und Simplon-Autoverladung",
+     "price": 109.0,
+     "currency": "CHF",
+     "group": "Lötschberg-Autoverladung"
+    },
+    {
+     "name": "einfache Fahrt inkl. Personen",
+     "price": 27.0,
+     "currency": "CHF",
+     "group": "Simplon-Autoverladung"
+    },
+    {
+     "name": "Kombiticket Lötschberg- und Simplon-Autoverladung",
+     "price": 109.0,
+     "currency": "CHF",
+     "group": "Simplon-Autoverladung"
+    },
+    {
+     "name": "Winter (1.12.-30.4.)",
+     "price": 39.0,
+     "currency": "CHF",
+     "group": "Vereina-Autoverladung"
+    },
+    {
+     "name": "Sommer (1.5.-30.11.)",
+     "price": 34.0,
+     "currency": "CHF",
+     "group": "Vereina-Autoverladung"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "Jahres-Vignette",
+     "days": 365,
+     "price": 44.5,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/schweiz/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/schweiz/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/schweiz/tanken-laden/"
+   }
+  },
+  "FR": {
+   "name": "Frankreich",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.16,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.37,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Klasse 2",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "einfache Fahrt FRA Richtung ITA",
+     "price": 55.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt ITA Richtung FRA",
+     "price": 56.4,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in FRA",
+     "price": 69.2,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in ITA",
+     "price": 70.4,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt FRA Richtung ITA",
+     "price": 55.5,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt ITA Richtung FRA",
+     "price": 56.4,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in FRA",
+     "price": 69.2,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in ITA",
+     "price": 70.4,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.6,
+     "currency": "EUR",
+     "group": "Tunnel de Caluire"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 7.8,
+     "currency": "EUR",
+     "group": "Tunnel de Puymorens"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 6.8,
+     "currency": "EUR",
+     "group": "Tunnel Maurice Lemaire"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 3.3,
+     "currency": "EUR",
+     "group": "Tunnel Prado Carénage Marseille"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.9,
+     "currency": "EUR",
+     "group": "Tunnel Prado Sud Marseille"
+    },
+    {
+     "name": "15.06.-15.09., Hin- und Rückfahrt",
+     "price": 16.0,
+     "currency": "EUR",
+     "group": "Brücken"
+    },
+    {
+     "name": "02.03.-14.06., 16.09.-14.11., Hin- und Rückfahrt",
+     "price": 8.0,
+     "currency": "EUR",
+     "group": "Brücken"
+    },
+    {
+     "name": "15.11.-01.03, Hin- und Rückfahrt",
+     "price": 4.0,
+     "currency": "EUR",
+     "group": "Brücken"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 5.9,
+     "currency": "EUR",
+     "group": "Pont de Normandie"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.8,
+     "currency": "EUR",
+     "group": "Pont de Tancarville"
+    },
+    {
+     "name": "Sommer (15.6.-15.9.)",
+     "price": 13.8,
+     "currency": "EUR",
+     "group": "Viaduc de Millau"
+    },
+    {
+     "name": "Winter (16.9.- 14.6.)",
+     "price": 11.3,
+     "currency": "EUR",
+     "group": "Viaduc de Millau"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/frankreich/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/frankreich/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/frankreich/tanken-laden/"
+   }
+  },
+  "IT": {
+   "name": "Italien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.0,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.24,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "einfache Fahrt FRA Richtung ITA",
+     "price": 55.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt ITA Richtung FRA",
+     "price": 56.4,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in FRA",
+     "price": 69.2,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in ITA",
+     "price": 70.4,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Einfache Fahrt",
+     "price": 32.0,
+     "currency": "CHF",
+     "group": "Großer St. Bernhardtunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt",
+     "price": 51.0,
+     "currency": "CHF",
+     "group": "Großer St. Bernhardtunnel"
+    },
+    {
+     "name": "einfache Fahrt FRA Richtung ITA",
+     "price": 55.5,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt ITA Richtung FRA",
+     "price": 56.4,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in FRA",
+     "price": 69.2,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "hin und zurück Start in ITA",
+     "price": 70.4,
+     "currency": "EUR",
+     "group": "Mont-Blanc-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt, Sommerpreise (Mai-November)",
+     "price": 17.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt, Sommerpreise (Mai-November)",
+     "price": 28.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "einfache Fahrt, Winterpreise (Dezember-April)",
+     "price": 25.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "Hin- und Rückfahrt, Winterpreise (Dezember-April)",
+     "price": 42.0,
+     "currency": "CHF",
+     "group": "Munt-la-Schera-Tunnel"
+    },
+    {
+     "name": "Innsbruck - Brennerpass und umgekehrt",
+     "price": 12.5,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Zenzenhof / Staatsgrenze Italien - Brennersee und umgekehrt",
+     "price": 1.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Patsch / Staatsgrenze Italien - Nösslach und umgekehrt",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Innsbruck - Stubaital und umgekehrt",
+     "price": 4.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "Matrei - Brennerpass und umgekehrt",
+     "price": 6.0,
+     "currency": "EUR",
+     "group": "Pass-Straßen"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 20.0,
+     "currency": "EUR",
+     "group": "Timmelsjoch"
+    },
+    {
+     "name": "Hin- und Rückfahrt",
+     "price": 28.0,
+     "currency": "EUR",
+     "group": "Timmelsjoch"
+    },
+    {
+     "name": "einfache Fahrt inkl. Personen",
+     "price": 27.0,
+     "currency": "CHF",
+     "group": "Autoverladungen"
+    },
+    {
+     "name": "Kombiticket Lötschberg- und Simplon-Autoverladung",
+     "price": 109.0,
+     "currency": "CHF",
+     "group": "Autoverladungen"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/italien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/italien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/italien/tanken-laden/"
+   }
+  },
+  "ES": {
+   "name": "Spanien",
+   "speed": {
+    "Innerorts": "30 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.73,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 1.9,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/spanien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/spanien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/spanien/tanken-laden/"
+   }
+  },
+  "PT": {
+   "name": "Portugal",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.01,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.21,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Klasse 2",
+     "price": 1.1,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "Klasse 3",
+     "price": 1.1,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "Klasse 4",
+     "price": 1.1,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "Fahrt Süd nach Nord",
+     "price": 2.25,
+     "currency": "EUR",
+     "group": "Brücken"
+    },
+    {
+     "name": "Fahrt Süd nach Nord",
+     "price": 3.4,
+     "currency": "EUR",
+     "group": "Ponte Vasco da Gama"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/portugal/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/portugal/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/portugal/tanken-laden/"
+   }
+  },
+  "NL": {
+   "name": "Niederlande",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "100 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.28,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.47,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Kiltunnel",
+     "price": 2.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/niederlande/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/niederlande/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/niederlande/tanken-laden/"
+   }
+  },
+  "BE": {
+   "name": "Belgien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "70 km/h",
+    "Schnellstraßen": "120 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.91,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.4,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Fahrzeuge unter 3 m Höhe",
+     "price": 8.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/belgien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/belgien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/belgien/tanken-laden/"
+   }
+  },
+  "LU": {
+   "name": "Luxemburg",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.76,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.11,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/luxemburg/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/luxemburg/tanken-laden/"
+   }
+  },
+  "DK": {
+   "name": "Dänemark",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "80 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.5,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.53,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Preise inkl.Personen, einfache Fahrt",
+     "price": 670.0,
+     "currency": "SEK",
+     "group": "Brücken"
+    },
+    {
+     "name": "Preise inkl. Personen, einfache Fahrt",
+     "price": 235.0,
+     "currency": "DKK",
+     "group": "Storebæltbrücke"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/daenemark/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/daenemark/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/daenemark/tanken-laden/"
+   }
+  },
+  "PL": {
+   "name": "Polen",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "140 km/h"
+   },
+   "fuel": {
+    "Diesel": {
+     "price": 1.81,
+     "currency": "EUR"
+    },
+    "Benzin": {
+     "price": 1.46,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/polen/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/polen/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/polen/tanken-laden/"
+   }
+  },
+  "CZ": {
+   "name": "Tschechien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.77,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 1.98,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [
+    {
+     "label": "1 Tag",
+     "days": 1,
+     "price": 230.0,
+     "currency": "CZK",
+     "year": null
+    },
+    {
+     "label": "10 Tage",
+     "days": 10,
+     "price": 300.0,
+     "currency": "CZK",
+     "year": null
+    },
+    {
+     "label": "30 Tage",
+     "days": 30,
+     "price": 480.0,
+     "currency": "CZK",
+     "year": null
+    },
+    {
+     "label": "1 Jahr",
+     "days": 365,
+     "price": 2570.0,
+     "currency": "CZK",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/tschechien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/tschechien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/tschechien/tanken-laden/"
+   }
+  },
+  "SK": {
+   "name": "Slowakei",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Diesel": {
+     "price": 1.98,
+     "currency": "EUR"
+    },
+    "Benzin": {
+     "price": 1.79,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [
+    {
+     "label": "1 Tag",
+     "days": 1,
+     "price": 8.1,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "10 Tage",
+     "days": 10,
+     "price": 10.8,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "30 Tage",
+     "days": 30,
+     "price": 17.1,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "365 Tage",
+     "days": 365,
+     "price": 90.0,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/slowakei/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/slowakei/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/slowakei/tanken-laden/"
+   }
+  },
+  "HU": {
+   "name": "Ungarn",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.75,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 1.98,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "komitatsweit 1 Jahr",
+     "price": 7190.0,
+     "currency": "HUF",
+     "group": "Vignette"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "1 Tag",
+     "days": 1,
+     "price": 5550.0,
+     "currency": "HUF",
+     "year": null
+    },
+    {
+     "label": "1 Woche (10 Tage)",
+     "days": 10,
+     "price": 6900.0,
+     "currency": "HUF",
+     "year": null
+    },
+    {
+     "label": "1 Monat",
+     "days": 30,
+     "price": 11170.0,
+     "currency": "HUF",
+     "year": null
+    },
+    {
+     "label": "1 Jahr",
+     "days": 365,
+     "price": 61760.0,
+     "currency": "HUF",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/ungarn/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/ungarn/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/ungarn/tanken-laden/"
+   }
+  },
+  "SI": {
+   "name": "Slowenien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.68,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 1.94,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Klasse 2A",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "Klasse 2B",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 9.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "7 Tage",
+     "days": 7,
+     "price": 16.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "1 Monat",
+     "days": 30,
+     "price": 32.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "1 Jahr",
+     "days": 365,
+     "price": 117.5,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/slowenien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/slowenien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/slowenien/tanken-laden/"
+   }
+  },
+  "HR": {
+   "name": "Kroatien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.75,
+     "currency": "EUR"
+    },
+    "Diesel (Eurodizel)": {
+     "price": 2.01,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Preise (1.10.-31.5.)",
+     "price": 4.1,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/kroatien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/kroatien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/kroatien/tanken-laden/"
+   }
+  },
+  "BA": {
+   "name": "Bosnien und Herzegowina",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/bosnien-herzegowina/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/bosnien-herzegowina/fahrzeug/"
+   }
+  },
+  "RS": {
+   "name": "Serbien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.76,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.01,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/serbien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/serbien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/serbien/tanken-laden/"
+   }
+  },
+  "ME": {
+   "name": "Montenegro",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Sozina-Tunnel",
+     "price": 2.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/montenegro/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/montenegro/fahrzeug/"
+   }
+  },
+  "AL": {
+   "name": "Albanien",
+   "speed": {
+    "Innerorts": "40 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "90 km/h",
+    "Autobahnen": "110 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Kalimash-Tunnel",
+     "price": 5.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Llogara Tunnel",
+     "price": 2.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/albanien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/albanien/fahrzeug/"
+   }
+  },
+  "MK": {
+   "name": "Nordmazedonien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/nordmazedonien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/nordmazedonien/fahrzeug/"
+   }
+  },
+  "GR": {
+   "name": "Griechenland",
+   "speed": {
+    "Innerorts": "30 km/h",
+    "Außerorts": "90 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.13,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.14,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Athenumfahrung Klasse 2",
+     "price": 1.3,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 3.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 15.4,
+     "currency": "EUR",
+     "group": "Tunnel"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/griechenland/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/griechenland/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/griechenland/tanken-laden/"
+   }
+  },
+  "BG": {
+   "name": "Bulgarien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "120 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "einfache Fahrt",
+     "price": 6.0,
+     "currency": "EUR",
+     "group": "Brücken"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.0,
+     "currency": "EUR",
+     "group": "Brücke Giurgiu (RO) - Ruse (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 25.0,
+     "currency": "EUR",
+     "group": "Brücke Giurgiu (RO) - Ruse (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 14.0,
+     "currency": "EUR",
+     "group": "Fähre Turnu Magurele (RO) - Nikopol (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 20.0,
+     "currency": "EUR",
+     "group": "Fähre Zimnicea (RO) - Swischtow (BG)"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "Wochenende (Freitag 12 Uhr - Sonntag 23.59 Uhr)",
+     "days": 3,
+     "price": 6.6,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "7 Tage",
+     "days": 7,
+     "price": 10.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "1 Monat",
+     "days": 30,
+     "price": 19.9,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "3 Monate",
+     "days": 90,
+     "price": 35.9,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "1 Jahr",
+     "days": 365,
+     "price": 64.5,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "1 Tag (gültig für 24 Stunden ab Kaufzeitpunkt)",
+     "days": 1,
+     "price": 5.3,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/bulgarien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/bulgarien/fahrzeug/"
+   }
+  },
+  "RO": {
+   "name": "Rumänien",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Kategorie B",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "Kategorie C",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 6.0,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 19.0,
+     "currency": "RON",
+     "group": "Brücke Fetesti (RO) - Cernavoda (RO)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 11.0,
+     "currency": "RON",
+     "group": "Brücke Giurgeni (RO) - Vadu Oii (RO)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.0,
+     "currency": "EUR",
+     "group": "Brücke Giurgiu (RO) - Ruse (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 25.0,
+     "currency": "EUR",
+     "group": "Brücke Giurgiu (RO) - Ruse (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 14.0,
+     "currency": "EUR",
+     "group": "Fähre Turnu Magurele (RO) - Nikopol (BG)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 20.0,
+     "currency": "EUR",
+     "group": "Fähre Zimnicea (RO) - Swischtow (BG)"
+    }
+   ],
+   "vignettes": [
+    {
+     "label": "10 Tage",
+     "days": 10,
+     "price": 6.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "30 Tage",
+     "days": 30,
+     "price": 9.5,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "60 Tage",
+     "days": 60,
+     "price": 15.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "12 Monate",
+     "days": 365,
+     "price": 50.0,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/rumaenien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/rumaenien/fahrzeug/"
+   }
+  },
+  "MD": {
+   "name": "Moldau",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "110 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [
+    {
+     "label": "7-Tages-Vignette",
+     "days": 7,
+     "price": 4.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "15-Tages-Vignette",
+     "days": 15,
+     "price": 8.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "30-Tages-Vignette",
+     "days": 30,
+     "price": 16.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "90-Tages-Vignette",
+     "days": 90,
+     "price": 45.0,
+     "currency": "EUR",
+     "year": null
+    },
+    {
+     "label": "180-Tages-Vignette",
+     "days": 180,
+     "price": 85.0,
+     "currency": "EUR",
+     "year": null
+    }
+   ],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/moldau/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/moldau/fahrzeug/"
+   }
+  },
+  "TR": {
+   "name": "Türkei",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "130 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.44,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 1.8,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/tuerkei/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/tuerkei/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/tuerkei/tanken-laden/"
+   }
+  },
+  "GB": {
+   "name": "Großbritannien",
+   "speed": {},
+   "fuel": {
+    "Benzin": {
+     "price": 2.07,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.38,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "einfache Fahrt",
+     "price": 4.2,
+     "currency": "GBP",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Dartford Tunnel (M25)/ Verbindung unter der Themse in London",
+     "price": 3.5,
+     "currency": "GBP",
+     "group": "Dartford Crossing (M25)"
+    },
+    {
+     "name": "Queen Elizabeth II Bridge (M25)/ Verbindung über die Themse in London",
+     "price": 3.5,
+     "currency": "GBP",
+     "group": "Dartford Crossing (M25)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.3,
+     "currency": "GBP",
+     "group": "Kingsway Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.3,
+     "currency": "GBP",
+     "group": "Queensway Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 4.2,
+     "currency": "GBP",
+     "group": "Silvertown Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.5,
+     "currency": "GBP",
+     "group": "Tyne Tunnels (A19)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 0.5,
+     "currency": "GBP",
+     "group": "Dunham Bridge (A57)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 1.5,
+     "currency": "GBP",
+     "group": "Humber Bridge (A15)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.4,
+     "currency": "GBP",
+     "group": "Mersey Gateway Bridge (A533)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.4,
+     "currency": "GBP",
+     "group": "Silver Jubilee Bridge (A533)"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 3.0,
+     "currency": "GBP",
+     "group": "Tamar Bridge (A38)"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/grossbritannien/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/grossbritannien/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/grossbritannien/tanken-laden/"
+   }
+  },
+  "IE": {
+   "name": "Irland",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Richtung Norden",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Richtung Norden, Mo-Fr 16-19 Uhr",
+     "price": 12.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Richtung Süden",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "Richtung Süden, Mo-Fr 6-10 Uhr",
+     "price": 14.0,
+     "currency": "EUR",
+     "group": "Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.3,
+     "currency": "EUR",
+     "group": "Limerick Tunnel"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 2.3,
+     "currency": "EUR",
+     "group": "Brücken"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/irland/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/irland/fahrzeug/"
+   }
+  },
+  "NO": {
+   "name": "Norwegen",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "80 km/h",
+    "Autobahnen": "90 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.73,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.72,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "Klasse 2",
+     "price": 3.5,
+     "currency": "EUR",
+     "group": "Fahrzeugklassen"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/norwegen/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/norwegen/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/norwegen/tanken-laden/"
+   }
+  },
+  "SE": {
+   "name": "Schweden",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Autobahnen": "100 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.55,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.06,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [
+    {
+     "name": "einfache Fahrt",
+     "price": 5.0,
+     "currency": "SEK",
+     "group": "Brücken"
+    },
+    {
+     "name": "Preise inkl.Personen, einfache Fahrt",
+     "price": 670.0,
+     "currency": "SEK",
+     "group": "Øresundbrücke"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 4.0,
+     "currency": "SEK",
+     "group": "Skurubrücke"
+    },
+    {
+     "name": "einfache Fahrt",
+     "price": 9.0,
+     "currency": "SEK",
+     "group": "Sundsvallbrücke"
+    }
+   ],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/schweden/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/schweden/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/schweden/tanken-laden/"
+   }
+  },
+  "FI": {
+   "name": "Finnland",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "100 km/h",
+    "Autobahnen": "120 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 2.21,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.43,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/finnland/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/finnland/tanken-laden/"
+   }
+  },
+  "EE": {
+   "name": "Estland",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "90 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/estland/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/estland/fahrzeug/"
+   }
+  },
+  "LV": {
+   "name": "Lettland",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "90 km/h",
+    "Autobahnen": "90 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/lettland/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/lettland/fahrzeug/"
+   }
+  },
+  "LT": {
+   "name": "Litauen",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "90 km/h",
+    "Schnellstraßen": "110 km/h",
+    "Autobahnen": "110 km/h"
+   },
+   "fuel": {
+    "Benzin": {
+     "price": 1.87,
+     "currency": "EUR"
+    },
+    "Diesel": {
+     "price": 2.22,
+     "currency": "EUR"
+    }
+   },
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "maut": "https://www.adac.de/reise-freizeit/maut-vignette/litauen/",
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/litauen/fahrzeug/",
+    "tanken": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/litauen/tanken-laden/"
+   }
+  },
+  "LI": {
+   "name": "Liechtenstein",
+   "speed": {
+    "Innerorts": "50 km/h",
+    "Außerorts": "80 km/h",
+    "Schnellstraßen": "100 km/h"
+   },
+   "fuel": {},
+   "rules": {},
+   "tollSections": [],
+   "vignettes": [],
+   "sources": {
+    "regeln": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/liechtenstein/fahrzeug/"
+   }
+  }
+ }
+}
