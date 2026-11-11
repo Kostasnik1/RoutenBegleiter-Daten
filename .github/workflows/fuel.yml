@@ -1,0 +1,32 @@
+name: Spritpreise
+
+# Alle 3 Stunden: amtliche Tankstellenpreise ES/IT/PT/HR als kompakte Pakete + EU-Durchschnitt (Weekly Oil Bulletin).
+# (DE/AT/FR/SI fragt die App direkt bei den Behörden-Schnittstellen ab.)
+on:
+  schedule:
+    - cron: "41 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: { group: fuel, cancel-in-progress: false }
+
+jobs:
+  fuel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: tools }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q openpyxl
+      - name: Preise holen
+        run: |
+          python tools/fuel_packs.py out
+          python tools/fuel_eu.py out || echo "EU-Bulletin diesmal nicht erreichbar"
+      - name: Ins Release "data"
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view data >/dev/null 2>&1 || gh release create data --title "Daten" --notes "Automatisch erzeugte Daten für die App RoutenBegleiter"
+          gh release upload data out/* --clobber

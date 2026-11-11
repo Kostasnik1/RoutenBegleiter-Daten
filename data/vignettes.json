@@ -1,0 +1,375 @@
+{
+ "updated": "2026-11-11",
+ "info": "Pkw bis 3,5 t, Quelle ADAC (automatisch monatlich aktualisiert). 'verified=false' = nur manuell gepflegt – vor der Fahrt prüfen.",
+ "countries": {
+  "AT": {
+   "name": "Österreich",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://www.asfinag.at/maut-vignette/",
+   "extra": "Zusätzlich Streckenmaut z. B. A13 Brenner, A10 Tauern, A9 Pyhrn/Bosruck/Gleinalm, S16 Arlberg, A11 Karawanken. Ab 1.2.2027 nur noch digitale Vignette.",
+   "options": [
+    {
+     "days": 1,
+     "label": "1-Tages-Vignette",
+     "price": 9.6,
+     "from": "2026-01-01",
+     "to": "2026-12-31"
+    },
+    {
+     "days": 10,
+     "label": "10-Tages-Vignette",
+     "price": 12.8,
+     "from": "2026-01-01",
+     "to": "2026-12-31"
+    },
+    {
+     "days": 60,
+     "label": "2-Monats-Vignette",
+     "price": 32.0,
+     "from": "2026-01-01",
+     "to": "2026-12-31"
+    },
+    {
+     "days": 365,
+     "label": "Jahres-Vignette 2026",
+     "price": 106.8,
+     "from": "2025-12-01",
+     "to": "2027-01-31"
+    },
+    {
+     "days": 1,
+     "label": "1-Tages-Vignette",
+     "price": 9.8,
+     "from": "2027-01-01",
+     "to": "2027-12-31"
+    },
+    {
+     "days": 10,
+     "label": "10-Tages-Vignette",
+     "price": 13.0,
+     "from": "2027-01-01",
+     "to": "2027-12-31"
+    },
+    {
+     "days": 60,
+     "label": "2-Monats-Vignette",
+     "price": 32.6,
+     "from": "2027-01-01",
+     "to": "2027-12-31"
+    },
+    {
+     "days": 365,
+     "label": "Jahres-Vignette 2027",
+     "price": 108.9,
+     "from": "2026-12-01",
+     "to": "2028-01-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "CH": {
+   "name": "Schweiz",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://www.e-vignette.ch/",
+   "extra": "Nur Jahresvignette (gilt 1.12. Vorjahr bis 31.1. Folgejahr).",
+   "options": [
+    {
+     "days": 365,
+     "label": "Jahres-Vignette",
+     "price": 44.5,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "SI": {
+   "name": "Slowenien",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://evinjeta.dars.si/",
+   "extra": "Klasse 2A. Fahrzeuge über 1,30 m Höhe an der Vorderachse: Klasse 2B (teurer). Karawankentunnel extra.",
+   "options": [
+    {
+     "days": 7,
+     "label": "7 Tage",
+     "price": 16.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "1 Monat",
+     "price": 32.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "1 Jahr",
+     "price": 117.5,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "CZ": {
+   "name": "Tschechien",
+   "currency": "CZK",
+   "verified": true,
+   "url": "https://edalnice.cz/",
+   "extra": "Nur elektronische Vignette. Preise je nach Quelle unterschiedlich – bitte prüfen.",
+   "options": [
+    {
+     "days": 1,
+     "label": "1 Tag",
+     "price": 230.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 10,
+     "label": "10 Tage",
+     "price": 300.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "30 Tage",
+     "price": 480.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "1 Jahr",
+     "price": 2570.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "SK": {
+   "name": "Slowakei",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://eznamka.sk/",
+   "extra": "Nur elektronisch. Quellen widersprechen sich (Jahresvignette 60 € vs. 90 €) – bitte prüfen.",
+   "options": [
+    {
+     "days": 1,
+     "label": "1 Tag",
+     "price": 8.1,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 10,
+     "label": "10 Tage",
+     "price": 10.8,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "30 Tage",
+     "price": 17.1,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "365 Tage",
+     "price": 90.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "HU": {
+   "name": "Ungarn",
+   "currency": "HUF",
+   "verified": true,
+   "url": "https://ematrica.nemzetiutdij.hu/",
+   "extra": "Kategorie D1. Preise schwanken je nach Quelle leicht – bitte prüfen.",
+   "options": [
+    {
+     "days": 1,
+     "label": "1 Tag",
+     "price": 5550.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 10,
+     "label": "1 Woche (10 Tage)",
+     "price": 6900.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "1 Monat",
+     "price": 11170.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "1 Jahr",
+     "price": 61760.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "BG": {
+   "name": "Bulgarien",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://web.bgtoll.bg/",
+   "extra": "Elektronische Vignette – bitte prüfen.",
+   "options": [
+    {
+     "days": 3,
+     "label": "Wochenende (Freitag 12 Uhr - Sonntag 23.59 Uhr)",
+     "price": 6.6,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 7,
+     "label": "7 Tage",
+     "price": 10.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "1 Monat",
+     "price": 19.9,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 90,
+     "label": "3 Monate",
+     "price": 35.9,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "1 Jahr",
+     "price": 64.5,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 1,
+     "label": "1 Tag (gültig für 24 Stunden ab Kaufzeitpunkt)",
+     "price": 5.3,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "RO": {
+   "name": "Rumänien",
+   "currency": "EUR",
+   "verified": true,
+   "url": "https://www.roviniete.ro/",
+   "extra": "Rovinieta – Preis abhängig von der Euro-Norm, bitte prüfen.",
+   "options": [
+    {
+     "days": 10,
+     "label": "10 Tage",
+     "price": 6.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "30 Tage",
+     "price": 9.5,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 60,
+     "label": "60 Tage",
+     "price": 15.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 365,
+     "label": "12 Monate",
+     "price": 50.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ],
+   "source": "ADAC"
+  },
+  "MD": {
+   "name": "Moldau",
+   "currency": "EUR",
+   "verified": true,
+   "source": "ADAC",
+   "url": "https://www.adac.de/reise-freizeit/maut-vignette/moldau/",
+   "options": [
+    {
+     "days": 7,
+     "label": "7-Tages-Vignette",
+     "price": 4.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 15,
+     "label": "15-Tages-Vignette",
+     "price": 8.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 30,
+     "label": "30-Tages-Vignette",
+     "price": 16.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 90,
+     "label": "90-Tages-Vignette",
+     "price": 45.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    },
+    {
+     "days": 180,
+     "label": "180-Tages-Vignette",
+     "price": 85.0,
+     "from": "2000-01-01",
+     "to": "2099-12-31"
+    }
+   ]
+  }
+ },
+ "tollCountries": {
+  "IT": "Italien: Streckenmaut auf Autobahnen (noch nicht berechnet).",
+  "FR": "Frankreich: Streckenmaut (Péage) – noch nicht berechnet.",
+  "ES": "Spanien: teilweise Streckenmaut – noch nicht berechnet.",
+  "HR": "Kroatien: Streckenmaut – noch nicht berechnet.",
+  "PL": "Polen: teilweise Streckenmaut – noch nicht berechnet."
+ }
+}
