@@ -85,15 +85,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: tools }
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
+      # osmium über conda-forge (die Ubuntu-Paketserver sind vom Runner-Image ubuntu-26.04 aus oft nicht erreichbar)
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: osm
+          create-args: osmium-tool python=3.12
+          init-shell: bash
       - name: OSM-Auszug laden und filtern
+        shell: bash -el {0}
         run: |
           curl -sSfL -o land.osm.pbf "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
           osmium tags-filter land.osm.pbf nwr/amenity=toilets nwr/highway=rest_area,services nwr/amenity=fast_food \
             nwr/toilets:fee=no n/highway=speed_camera -o f.osm.pbf
           rm land.osm.pbf
           osmium export f.osm.pbf -f geojsonseq --add-unique-id=type_id -o f.geojsonseq
-          python3 tools/build_poi_pack.py ${{ matrix.iso }} f.geojsonseq poi-${{ matrix.iso }}.json.gz
+          python tools/build_poi_pack.py ${{ matrix.iso }} f.geojsonseq poi-${{ matrix.iso }}.json.gz
       - name: Ins Release "data"
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh release upload data poi-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}
