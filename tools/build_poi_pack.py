@@ -12,7 +12,9 @@ Ausgabe: poi-<ISO>.json.gz  {"country": "DE", "updated": "...", "e": [[id, lat, 
 
 Aufruf: python tools/build_poi_pack.py DE filtered.geojsonseq poi-DE.json.gz
 """
-import datetime, gzip, json, re, sys
+import datetime, os, gzip, json, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import guard
 
 KEEP = ["name", "brand", "operator", "fee", "toilets:fee", "toilets", "toilets:wheelchair", "amenity", "highway",
         "opening_hours", "wheelchair", "access", "charge", "maxspeed", "changing_table"]
@@ -55,6 +57,9 @@ def main(iso, src, dst):
             n = int(re.sub(r"\D", "", uid) or 0)
             oid = n if uid.startswith("n") else (n + 3_600_000_000_000 if uid.startswith("r") else n + 2_400_000_000_000)
             out.append([oid, round(lat, 6), round(lon, 6), {k: p[k] for k in KEEP if k in p}])
+    ok, msg = guard.plausible(f"poi-{iso}.json.gz", len(out), lambda d: len(d.get("e", [])))
+    if not ok:
+        sys.exit(f"{iso}: {msg} – Paket wird nicht ersetzt")
     data = {"country": iso, "updated": datetime.date.today().isoformat(), "source": "© OpenStreetMap-Mitwirkende (ODbL)", "e": out}
     with gzip.open(dst, "wt", encoding="utf-8") as g:
         json.dump(data, g, ensure_ascii=False, separators=(",", ":"))

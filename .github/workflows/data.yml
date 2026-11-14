@@ -23,7 +23,10 @@ jobs:
         with: { python-version: "3.12" }
       - name: ADAC-Daten holen (ohne Regeltexte)
         env: { OUT_DIR: data, PUBLIC: "1" }
-        run: python tools/update_country_data.py
+        run: |
+          python tools/update_country_data.py
+          # Schutz: nur übernehmen, wenn noch (fast) alle Länder erkannt wurden
+          python -c "import json,sys; n=len(json.load(open('data/countries.json',encoding='utf-8'))['countries']); print(n,'Länder'); sys.exit(0 if n>=30 else 'ADAC-Format geändert? nur %d Länder' % n)"
       - name: Einchecken
         run: |
           git config user.name "github-actions[bot]"
@@ -35,7 +38,7 @@ jobs:
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           gh release view data >/dev/null 2>&1 || gh release create data --title "Daten" --notes "Automatisch erzeugte Daten für die App RoutenBegleiter"
-          gh release upload data data/countries.json data/vignettes.json --clobber
+          gh release upload data data/countries.json data/vignettes.json data/config.json --clobber
 
   packs:
     if: github.event_name == 'schedule' || inputs.packs
@@ -97,9 +100,30 @@ jobs:
           curl -sSfL -o land.osm.pbf "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
           osmium tags-filter land.osm.pbf nwr/amenity=toilets nwr/highway=rest_area,services nwr/amenity=fast_food \
             nwr/toilets:fee=no n/highway=speed_camera -o f.osm.pbf
+          # Umweltzonen aus demselben Auszug
+          osmium tags-filter land.osm.pbf nwr/boundary=low_emission_zone -o lez.osm.pbf
+          osmium export lez.osm.pbf -f geojsonseq --geometry-types=polygon --add-unique-id=type_id -o lez.geojsonseq
+          python tools/build_lez.py country ${{ matrix.iso }} lez.geojsonseq lez-${{ matrix.iso }}.json
           rm land.osm.pbf
           osmium export f.osm.pbf -f geojsonseq --add-unique-id=type_id -o f.geojsonseq
           python tools/build_poi_pack.py ${{ matrix.iso }} f.geojsonseq poi-${{ matrix.iso }}.json.gz
       - name: Ins Release "data"
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh release upload data poi-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}
+      - uses: actions/upload-artifact@v4
+        with: { name: "lez-${{ matrix.iso }}", path: "lez-${{ matrix.iso }}.json", retention-days: 3 }
+
+  lez:
+    needs: packs
+    if: always() && needs.packs.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: tools }
+      - uses: actions/download-artifact@v4
+        with: { path: lez, pattern: "lez-*" }
+      - name: Umweltzonen zusammenführen (fehlende Länder behalten ihren alten Stand)
+        run: python tools/build_lez.py merge lez lez.json.gz
+      - name: Ins Release "data"
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release upload data lez.json.gz --clobber

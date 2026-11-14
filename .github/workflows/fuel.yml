@@ -1,7 +1,8 @@
 name: Spritpreise
 
 # Alle 3 Stunden: amtliche Tankstellenpreise ES/PT/HR als kompakte Pakete + EU-Durchschnitt (Weekly Oil Bulletin).
-# (DE/AT/FR/SI fragt die App direkt bei den Behörden-Schnittstellen ab.)
+# FR zusätzlich als Ersatz-Paket (die App fragt FR sonst live ab). DE/AT/SI fragt die App direkt ab.
+# Veröffentlicht wird nur, was die Plausibilitätsprüfung besteht (tools/guard.py).
 on:
   schedule:
     - cron: "41 */3 * * *"
@@ -23,7 +24,7 @@ jobs:
       - run: pip install -q openpyxl
       - name: Preise holen
         run: |
-          python tools/fuel_packs.py out ES PT HR   # IT: mimit.gov.it sperrt GitHub-Server – die App lädt Italien direkt
+          python tools/fuel_packs.py out ES PT HR FR   # IT: mimit.gov.it sperrt GitHub-Server – die App lädt Italien direkt
           python tools/fuel_eu.py out || echo "EU-Bulletin diesmal nicht erreichbar"
       - name: Ins Release "data"
         env: { GH_TOKEN: "${{ github.token }}" }

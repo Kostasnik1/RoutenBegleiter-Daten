@@ -7,6 +7,8 @@ Aufruf: python tools/fuel_eu.py <ausgabeordner>
 """
 import datetime, io, json, os, sys, time, urllib.request
 import openpyxl
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import guard
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -42,6 +44,12 @@ def main(dst):
             prices[iso] = p
     if len(prices) < 20:
         sys.exit(f"nur {len(prices)} Länder gelesen – Format geändert?")
+    de = prices.get("DE", {}).get("e5")
+    if not de or not 1.0 < de < 3.5:
+        sys.exit(f"Deutschland-Preis {de} unplausibel – Spalten verschoben?")
+    ok, msg = guard.plausible("eu-fuel.json", len(prices), lambda d: len(d.get("prices", {})), 0.8)
+    if not ok:
+        sys.exit(msg)
     os.makedirs(dst, exist_ok=True)
     json.dump({"updated": datetime.date.today().isoformat(), "week": week,
                "source": "EU-Kommission, Weekly Oil Bulletin (Durchschnitt inkl. Steuern)", "prices": prices},

@@ -1,0 +1,38 @@
+name: Gesundheits-Check
+
+# Täglich: alle Datenquellen der App (inkl. Ersatz-Anbieter) mit echten Abfragen prüfen.
+# Ergebnis → health.json im Release "data" (zeigt die App unter Einstellungen → Datenquellen)
+# und bei Problemen ein Issue "Datenquellen-Störung" (GitHub schickt eine E-Mail); wird automatisch geschlossen, wenn alles wieder läuft.
+on:
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "tools\ndata" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Quellen prüfen
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: python tools/health_check.py data/config.json out
+      - name: health.json veröffentlichen
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release upload data out/health.json --clobber
+      - name: Issue öffnen / aktualisieren / schließen
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          n=$(gh issue list --state open --search "Datenquellen-Störung in:title" --json number --jq '.[0].number')
+          if [ -s out/issue.md ]; then
+            if [ -n "$n" ]; then gh issue comment "$n" --body-file out/issue.md
+            else gh issue create --title "Datenquellen-Störung" --body-file out/issue.md; fi
+          elif [ -n "$n" ]; then
+            gh issue close "$n" --comment "Alle Quellen laufen wieder ✔"
+          fi

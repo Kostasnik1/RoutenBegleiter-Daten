@@ -7,11 +7,16 @@ Amtliche Spritpreise je Tankstelle für Länder, deren Behörden nur Komplett-Li
   IT  MIMIT – Osservatorio prezzi carburanti (täglich)
   PT  DGEG – Preços dos combustíveis
   HR  Ministarstvo gospodarstva (mzoe-gor.hr)
+  FR  prix-carburants (roulez-eco.fr) – nur als Ersatz, falls die Live-Schnittstelle ausfällt
 
 Format: {"country","updated","source","s":[[id, lat, lon, name, brand, e5, diesel, lpg, "YYYY-MM-DD HH:MM"]]}
-Aufruf: python tools/fuel_packs.py <ausgabeordner> [ES IT PT HR]
+Aufruf: python tools/fuel_packs.py <ausgabeordner> [ES IT PT HR FR]
+Veröffentlicht wird nur, was plausibel ist (Mindestanzahl, Vergleich mit der Vorversion, Preisniveau).
 """
-import csv, datetime, gzip, json, os, subprocess, sys, time, urllib.request
+import csv, datetime, gzip, io, json, os, statistics, subprocess, sys, time, urllib.request, zipfile
+import xml.etree.ElementTree as ET
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import guard
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -135,9 +140,41 @@ def hr():
     return out, "Ministarstvo gospodarstva RH (mzoe-gor.hr)"
 
 
+def fr():
+    """Komplettliste Frankreich (ZIP mit XML, ~1 MB) – Ersatz für die Umkreis-Abfrage der App."""
+    z = zipfile.ZipFile(io.BytesIO(get("https://donnees.roulez-eco.fr/opendata/instantane")))
+    root = ET.fromstring(z.read(z.namelist()[0]))
+    out = []
+    for p in root.iter("pdv"):
+        try:
+            lat, lon = int(p.get("latitude")) / 100000, int(p.get("longitude")) / 100000
+        except (TypeError, ValueError):
+            continue
+        if not (41 < lat < 52 and -6 < lon < 10):
+            continue
+        pr, ts = {}, ""
+        for x in p.iter("prix"):
+            pr[x.get("nom")] = num(x.get("valeur"))
+            ts = max(ts, (x.get("maj") or "")[:16])
+        e5 = pr.get("SP95") or pr.get("E10")
+        if e5 or pr.get("Gazole"):
+            out.append(["FR-" + p.get("id"), round(lat, 6), round(lon, 6), (p.findtext("ville") or "").strip(), "",
+                        e5, pr.get("Gazole"), pr.get("GPLc"), ts])
+    return out, "prix-carburants (Ministère de l'Économie) über roulez-eco.fr"
+
+
+def sane(rows):
+    """Preisniveau muss stimmen (sonst z. B. Cent statt Euro oder vertauschte Spalten)."""
+    for idx in (5, 6):
+        v = [r[idx] for r in rows if r[idx]]
+        if len(v) > 50 and not 0.8 < statistics.median(v) < 3.5:
+            return f"Median {statistics.median(v):.3f} €/l unplausibel"
+    return None
+
+
 def main(dst, *codes):
     os.makedirs(dst, exist_ok=True)
-    fns = {"ES": es, "IT": it, "PT": pt, "HR": hr}
+    fns = {"ES": es, "IT": it, "PT": pt, "HR": hr, "FR": fr}
     codes = codes or tuple(fns)
     ok = 0
     for c in codes:
@@ -148,6 +185,11 @@ def main(dst, *codes):
             continue
         if len(rows) < 100:
             print(f"{c}: nur {len(rows)} Tankstellen – Paket nicht ersetzt", flush=True)
+            continue
+        bad = sane(rows)
+        okp, msg = guard.plausible(f"fuel-{c}.json.gz", len(rows), lambda d: len(d.get("s", [])))
+        if bad or not okp:
+            print(f"{c}: {bad or msg} – Paket nicht ersetzt", flush=True)
             continue
         doc = {"country": c, "updated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "source": src, "s": rows}
         path = os.path.join(dst, f"fuel-{c}.json.gz")

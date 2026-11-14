@@ -1,0 +1,28 @@
+name: Fernsteuerung veröffentlichen
+
+# Änderungen an data/config.json (Adressen, abgeschaltete Quellen, Hinweis) sofort an die App weitergeben.
+on:
+  push:
+    paths: [data/config.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: data }
+      - name: Prüfen (gültiges JSON, nur https-Adressen)
+        run: |
+          python -c "
+          import json,sys
+          c=json.load(open('data/config.json',encoding='utf-8'))
+          bad=[u for v in c['urls'].values() for u in v if not u.startswith('https://')]
+          sys.exit('Nur https erlaubt: %s' % bad if bad else 0)
+          print('ok, Version', c['version'])"
+      - name: Ins Release "data"
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release upload data data/config.json --clobber
