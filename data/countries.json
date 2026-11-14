@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-14",
  "source": "ADAC (adac.de) – Maut & Vignette, Reiseziele/Fahrzeug, Tanken & Laden",
  "countries": {
   "DE": {
@@ -64,11 +64,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.75,
+     "price": 1.67,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.15,
+     "price": 2.09,
      "currency": "EUR"
     }
    },
@@ -299,11 +299,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.33,
+     "price": 2.13,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.63,
+     "price": 2.53,
      "currency": "EUR"
     }
    },
@@ -419,11 +419,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.16,
+     "price": 2.09,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.37,
+     "price": 2.18,
      "currency": "EUR"
     }
    },
@@ -577,7 +577,7 @@
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.24,
+     "price": 2.22,
      "currency": "EUR"
     }
    },
@@ -766,11 +766,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.01,
+     "price": 1.92,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.21,
+     "price": 2.14,
      "currency": "EUR"
     }
    },
@@ -824,11 +824,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.28,
+     "price": 2.2,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.47,
+     "price": 2.36,
      "currency": "EUR"
     }
    },
@@ -858,11 +858,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.91,
+     "price": 1.84,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.4,
+     "price": 2.36,
      "currency": "EUR"
     }
    },
@@ -891,11 +891,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.76,
+     "price": 1.63,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.11,
+     "price": 1.99,
      "currency": "EUR"
     }
    },
@@ -917,11 +917,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.5,
+     "price": 2.39,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.53,
+     "price": 2.43,
      "currency": "EUR"
     }
    },
@@ -957,11 +957,11 @@
    },
    "fuel": {
     "Diesel": {
-     "price": 1.81,
+     "price": 1.75,
      "currency": "EUR"
     },
     "Benzin": {
-     "price": 1.46,
+     "price": 1.38,
      "currency": "EUR"
     }
    },
@@ -984,11 +984,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.77,
+     "price": 1.65,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 1.98,
+     "price": 1.9,
      "currency": "EUR"
     }
    },
@@ -1039,11 +1039,11 @@
    },
    "fuel": {
     "Diesel": {
-     "price": 1.98,
+     "price": 1.97,
      "currency": "EUR"
     },
     "Benzin": {
-     "price": 1.79,
+     "price": 1.69,
      "currency": "EUR"
     }
    },
@@ -1095,7 +1095,7 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.75,
+     "price": 1.67,
      "currency": "EUR"
     },
     "Diesel": {
@@ -1158,11 +1158,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.68,
+     "price": 1.63,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 1.94,
+     "price": 1.95,
      "currency": "EUR"
     }
    },
@@ -1230,7 +1230,7 @@
      "currency": "EUR"
     },
     "Diesel (Eurodizel)": {
-     "price": 2.01,
+     "price": 2.02,
      "currency": "EUR"
     }
    },
@@ -1373,11 +1373,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.13,
+     "price": 2.04,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.14,
+     "price": 2.1,
      "currency": "EUR"
     }
    },
@@ -1663,11 +1663,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.44,
+     "price": 1.34,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 1.8,
+     "price": 1.71,
      "currency": "EUR"
     }
    },
@@ -1685,11 +1685,11 @@
    "speed": {},
    "fuel": {
     "Benzin": {
-     "price": 2.07,
+     "price": 2.04,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.38,
+     "price": 2.37,
      "currency": "EUR"
     }
    },
@@ -1839,11 +1839,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.73,
+     "price": 2.57,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.72,
+     "price": 2.57,
      "currency": "EUR"
     }
    },
@@ -1872,11 +1872,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.55,
+     "price": 1.44,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.06,
+     "price": 1.95,
      "currency": "EUR"
     }
    },
@@ -1923,11 +1923,11 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 2.21,
+     "price": 2.14,
      "currency": "EUR"
     },
     "Diesel": {
-     "price": 2.43,
+     "price": 2.48,
      "currency": "EUR"
     }
    },
@@ -1982,7 +1982,7 @@
    },
    "fuel": {
     "Benzin": {
-     "price": 1.87,
+     "price": 1.84,
      "currency": "EUR"
     },
     "Diesel": {
