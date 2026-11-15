@@ -44,6 +44,7 @@ jobs:
     if: github.event_name == 'schedule' || inputs.packs
     needs: countries
     runs-on: ubuntu-latest
+    timeout-minutes: 60   # hängender Download → abbrechen statt 6 h warten
     strategy:
       fail-fast: false
       max-parallel: 6
@@ -97,7 +98,7 @@ jobs:
       - name: OSM-Auszug laden und filtern
         shell: bash -el {0}
         run: |
-          curl -sSfL --retry 5 --retry-all-errors --retry-delay 30 -o land.osm.pbf "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
+          curl -sSfL --retry 5 --retry-all-errors --retry-delay 30 --speed-limit 100000 --speed-time 120 -o land.osm.pbf "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
           osmium tags-filter land.osm.pbf nwr/amenity=toilets nwr/highway=rest_area,services nwr/amenity=fast_food \
             nwr/toilets:fee=no n/highway=speed_camera -o f.osm.pbf
           # Umweltzonen aus demselben Auszug
