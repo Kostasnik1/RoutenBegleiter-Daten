@@ -178,6 +178,20 @@ def checks(cfg):
         return f"{len(poi)} Länder, alle jünger als 70 Tage"
     c["data.poi-all"] = ("Toiletten-Pakete (alle Länder)", all_poi)
 
+    def all_charge():
+        ch = {n[7:9]: x for n, x in rel.items() if n.startswith("charge-") and n.endswith(".json.gz")}
+        need(len(ch) >= 30, f"nur {len(ch)} Länder")
+        old = sorted(f"{k} {age_h(x['updated_at']) / 24:.0f} T" for k, x in ch.items() if age_h(x["updated_at"]) > 24 * 70)
+        need(not old, "zu alt: " + ", ".join(old))
+        return f"{len(ch)} Länder, alle jünger als 70 Tage"
+    c["data.charge-all"] = ("Ladesäulen-Pakete (alle Länder)", all_charge)
+
+    def meteoalarm():
+        b = json.loads(fetch(u.get("alerts.meteoalarm", ["https://feeds.meteoalarm.org/api/v1/warnings/feeds-"])[0] + "austria"))
+        need("warnings" in b, "Format geändert (kein 'warnings')")
+        return f"{len(b['warnings'])} Warnungen AT"
+    c["alerts.meteoalarm"] = ("Unwetterwarnungen Ausland (MeteoAlarm)", meteoalarm)
+
     def overpass():
         q = '[out:json][timeout:25];node["amenity"="toilets"](50.10,8.67,50.12,8.69);out 1;'
         errs = []

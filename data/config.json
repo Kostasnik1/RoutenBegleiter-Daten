@@ -4,21 +4,59 @@
  "notice": "",
  "disabled": [],
  "urls": {
-  "route.osrm": ["https://router.project-osrm.org", "https://routing.openstreetmap.de/routed-car"],
-  "route.valhalla": ["https://valhalla1.openstreetmap.de"],
-  "geo.photon": ["https://photon.komoot.io"],
-  "geo.nominatim": ["https://nominatim.openstreetmap.org"],
-  "weather.openmeteo": ["https://api.open-meteo.com/v1/forecast"],
-  "weather.metno": ["https://api.met.no/weatherapi/locationforecast/2.0/complete"],
-  "alerts.dwd": ["https://api.brightsky.dev/alerts"],
-  "fuel.DE": ["https://creativecommons.tankerkoenig.de/json/list.php"],
-  "fuel.AT": ["https://api.e-control.at/sprit/1.0/search/gas-stations/by-address"],
-  "fuel.FR": ["https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/prix-des-carburants-en-france-flux-instantane-v2/records"],
-  "fuel.SI": ["https://goriva.si/api/v1/search/"],
-  "fuel.IT": ["https://www.mimit.gov.it/images/exportCSV/"],
-  "overpass": ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter", "https://overpass.kumi.systems/api/interpreter"],
-  "traffic.autobahn": ["https://verkehr.autobahn.de/o/autobahn"],
-  "radar": ["https://api.rainviewer.com/public/weather-maps.json"],
-  "fx": ["https://api.frankfurter.dev/v1/latest"]
+  "route.osrm": [
+   "https://router.project-osrm.org",
+   "https://routing.openstreetmap.de/routed-car"
+  ],
+  "route.valhalla": [
+   "https://valhalla1.openstreetmap.de"
+  ],
+  "geo.photon": [
+   "https://photon.komoot.io"
+  ],
+  "geo.nominatim": [
+   "https://nominatim.openstreetmap.org"
+  ],
+  "weather.openmeteo": [
+   "https://api.open-meteo.com/v1/forecast"
+  ],
+  "weather.metno": [
+   "https://api.met.no/weatherapi/locationforecast/2.0/complete"
+  ],
+  "alerts.dwd": [
+   "https://api.brightsky.dev/alerts"
+  ],
+  "fuel.DE": [
+   "https://creativecommons.tankerkoenig.de/json/list.php"
+  ],
+  "fuel.AT": [
+   "https://api.e-control.at/sprit/1.0/search/gas-stations/by-address"
+  ],
+  "fuel.FR": [
+   "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/prix-des-carburants-en-france-flux-instantane-v2/records"
+  ],
+  "fuel.SI": [
+   "https://goriva.si/api/v1/search/"
+  ],
+  "fuel.IT": [
+   "https://www.mimit.gov.it/images/exportCSV/"
+  ],
+  "overpass": [
+   "https://overpass-api.de/api/interpreter",
+   "https://overpass.private.coffee/api/interpreter",
+   "https://overpass.kumi.systems/api/interpreter"
+  ],
+  "traffic.autobahn": [
+   "https://verkehr.autobahn.de/o/autobahn"
+  ],
+  "radar": [
+   "https://api.rainviewer.com/public/weather-maps.json"
+  ],
+  "fx": [
+   "https://api.frankfurter.dev/v1/latest"
+  ],
+  "alerts.meteoalarm": [
+   "https://feeds.meteoalarm.org/api/v1/warnings/feeds-"
+  ]
  }
 }

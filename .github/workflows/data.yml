@@ -119,13 +119,19 @@ jobs:
           # Umweltzonen aus demselben Auszug
           osmium tags-filter land.osm.pbf nwr/boundary=low_emission_zone -o lez.osm.pbf
           python tools/build_lez.py country ${{ matrix.iso }} lez.osm.pbf lez-${{ matrix.iso }}.json
+          # Ladesäulen (eigenes Paket – die App lädt es nur, wenn „Ladesäulen“ eingeschaltet ist)
+          osmium tags-filter land.osm.pbf nwr/amenity=charging_station -o charge.osm.pbf
+          osmium export charge.osm.pbf -f geojsonseq --add-unique-id=type_id -o charge.geojsonseq
+          python tools/build_charge_pack.py ${{ matrix.iso }} charge.geojsonseq charge-${{ matrix.iso }}.json.gz || echo "::warning::${{ matrix.iso }}: Ladesäulen-Paket nicht gebaut"
           rm land.osm.pbf
           osmium export f.osm.pbf -f geojsonseq --add-unique-id=type_id -o f.geojsonseq
           python tools/build_poi_pack.py ${{ matrix.iso }} f.geojsonseq poi-${{ matrix.iso }}.json.gz
       - name: Ins Release "data"
         if: steps.dl.outputs.ok == 'true'
         env: { GH_TOKEN: "${{ github.token }}" }
-        run: gh release upload data poi-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}
+        run: |
+          gh release upload data poi-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}
+          if [ -s charge-${{ matrix.iso }}.json.gz ]; then gh release upload data charge-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}; fi
       - uses: actions/upload-artifact@v4
         if: steps.dl.outputs.ok == 'true'
         with: { name: "lez-${{ matrix.iso }}", path: "lez-${{ matrix.iso }}.json", retention-days: 3 }
