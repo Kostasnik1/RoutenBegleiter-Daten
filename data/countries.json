@@ -926,20 +926,7 @@
     }
    },
    "rules": {},
-   "tollSections": [
-    {
-     "name": "Preise inkl.Personen, einfache Fahrt",
-     "price": 670.0,
-     "currency": "SEK",
-     "group": "Brücken"
-    },
-    {
-     "name": "Preise inkl. Personen, einfache Fahrt",
-     "price": 235.0,
-     "currency": "DKK",
-     "group": "Storebæltbrücke"
-    }
-   ],
+   "tollSections": [],
    "vignettes": [],
    "sources": {
     "maut": "https://www.adac.de/reise-freizeit/maut-vignette/daenemark/",
