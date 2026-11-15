@@ -78,7 +78,7 @@ jobs:
           - { iso: RO, geo: europe/romania }
           - { iso: MD, geo: europe/moldova }
           - { iso: TR, geo: europe/turkey }
-          - { iso: GB, geo: europe/great-britain }
+          - { iso: GB, geo: europe/great-britain, fr: europe/united_kingdom }
           - { iso: IE, geo: europe/ireland-and-northern-ireland }
           - { iso: NO, geo: europe/norway }
           - { iso: SE, geo: europe/sweden }
@@ -98,7 +98,9 @@ jobs:
       - name: OSM-Auszug laden und filtern
         shell: bash -el {0}
         run: |
-          curl -sSfL --retry 5 --retry-all-errors --retry-delay 30 --speed-limit 100000 --speed-time 120 -o land.osm.pbf "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
+          # Geofabrik weist einzelne GitHub-Server ab → nochmal über IPv4, dann Ersatz-Server (openstreetmap.fr)
+          C="curl -sSfL --retry 3 --retry-all-errors --retry-delay 20 --speed-limit 100000 --speed-time 120 -o land.osm.pbf"
+          $C "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"             || $C -4 "https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"             || $C "https://download.openstreetmap.fr/extracts/${{ matrix.fr || matrix.geo }}-latest.osm.pbf"
           osmium tags-filter land.osm.pbf nwr/amenity=toilets nwr/highway=rest_area,services nwr/amenity=fast_food \
             nwr/toilets:fee=no n/highway=speed_camera -o f.osm.pbf
           # Umweltzonen aus demselben Auszug
