@@ -10,6 +10,10 @@ on:
         description: "OSM-Pakete neu bauen"
         type: boolean
         default: true
+      nur:
+        description: "Nur diese Länder bauen (z. B. GR oder GR,HR) – leer = alle"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -18,8 +22,8 @@ jobs:
   countries:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: { python-version: "3.12" }
       - name: ADAC-Daten holen (ohne Regeltexte)
         env: { OUT_DIR: data, PUBLIC: "1" }
@@ -87,27 +91,43 @@ jobs:
           - { iso: LV, geo: europe/latvia }
           - { iso: LT, geo: europe/lithuania }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: { sparse-checkout: tools }
       # osmium über conda-forge (die Ubuntu-Paketserver sind vom Runner-Image ubuntu-26.04 aus oft nicht erreichbar)
-      - uses: mamba-org/setup-micromamba@v2
+      - uses: mamba-org/setup-micromamba@v3
         with:
           environment-name: osm
           create-args: osmium-tool pyosmium python=3.12
           init-shell: bash
       - name: OSM-Auszug laden
         id: dl
+        shell: bash -el {0}
         run: |
+          # nur ausgewählte Länder? (Teil-Lauf; die übrigen Pakete bleiben unverändert im Release)
+          if [ -n "${{ inputs.nur }}" ] && ! echo ",${{ inputs.nur }}," | tr -d ' ' | grep -qi ",${{ matrix.iso }},"; then
+            echo "${{ matrix.iso }}: nicht ausgewählt – übersprungen"; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
           # Geofabrik weist einzelne GitHub-Server zeitweise ab. Reihenfolge: normal → IPv4 → Ersatz-Server
-          # (openstreetmap.fr, hat nicht alle Länder) → 2× nach Pause erneut. Klappt nichts, bleibt das Paket
-          # vom letzten Lauf im Release stehen (Warnung statt Fehler; zu alte Pakete meldet der Gesundheits-Check).
+          # (openstreetmap.fr, hat nicht alle Länder) → nach Pause erneut → Overpass (nur die benötigten Objekte,
+          # unabhängig von Geofabrik). Klappt nichts, bleibt das Paket vom letzten Lauf im Release stehen.
           G="https://download.geofabrik.de/${{ matrix.geo }}-latest.osm.pbf"
           M="https://download.openstreetmap.fr/extracts/${{ matrix.fr || matrix.geo }}-latest.osm.pbf"
           get() { curl -sSfL --retry 2 --retry-all-errors --retry-delay 15 --speed-limit 100000 --speed-time 120 -o land.osm.pbf "$@"; }
-          if get "$G" || get -4 "$G" || get "$M" || { sleep 180; get "$G"; } || { sleep 300; get -4 "$G"; }; then
+          overpass() {
+            Q='[out:xml][timeout:1500][maxsize:2147483648];area["ISO3166-1"="${{ matrix.iso }}"]["admin_level"="2"]->.a;(nwr(area.a)["amenity"~"^(toilets|fast_food|charging_station|restaurant|cafe|pub|bar|biergarten)$"];nwr(area.a)["highway"~"^(rest_area|services)$"];node(area.a)["highway"="speed_camera"];nwr(area.a)["boundary"="low_emission_zone"];);(._;>;);out;'
+            for ep in https://overpass-api.de/api/interpreter https://overpass.private.coffee/api/interpreter https://overpass.kumi.systems/api/interpreter; do
+              echo "Overpass: $ep"
+              if curl -sSf -m 1800 -A "RoutenBegleiter-Daten (github.com/${{ github.repository }})" --data-urlencode "data=$Q" -o land.osm "$ep"                  && head -c 400 land.osm | grep -q "<osm" && grep -q "<node" land.osm; then
+                osmium cat land.osm -o land.osm.pbf --overwrite && return 0
+              fi
+              sleep 30
+            done
+            return 1
+          }
+          if get "$G" || get -4 "$G" || get "$M" || { sleep 180; get "$G"; } || { sleep 120; get -4 "$G"; } || overpass; then
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::${{ matrix.iso }}: OSM-Auszug nicht erreichbar – Paket vom letzten Lauf bleibt bestehen"
+            echo "::warning::${{ matrix.iso }}: OSM-Auszug nicht erreichbar (Geofabrik, Ersatz-Server und Overpass) – Paket vom letzten Lauf bleibt bestehen"
             echo "ok=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Filtern und Pakete bauen
@@ -132,7 +152,7 @@ jobs:
         run: |
           gh release upload data poi-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}
           if [ -s charge-${{ matrix.iso }}.json.gz ]; then gh release upload data charge-${{ matrix.iso }}.json.gz --clobber -R ${{ github.repository }}; fi
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: steps.dl.outputs.ok == 'true'
         with: { name: "lez-${{ matrix.iso }}", path: "lez-${{ matrix.iso }}.json", retention-days: 3 }
 
@@ -141,9 +161,9 @@ jobs:
     if: always() && needs.packs.result != 'skipped'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: { sparse-checkout: tools }
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with: { path: lez, pattern: "lez-*" }
       - name: Umweltzonen zusammenführen (fehlende Länder behalten ihren alten Stand)
         run: python tools/build_lez.py merge lez lez.json.gz
