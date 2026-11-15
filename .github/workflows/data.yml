@@ -93,7 +93,7 @@ jobs:
       - uses: mamba-org/setup-micromamba@v2
         with:
           environment-name: osm
-          create-args: osmium-tool python=3.12
+          create-args: osmium-tool pyosmium python=3.12
           init-shell: bash
       - name: OSM-Auszug laden und filtern
         shell: bash -el {0}
@@ -103,8 +103,7 @@ jobs:
             nwr/toilets:fee=no n/highway=speed_camera -o f.osm.pbf
           # Umweltzonen aus demselben Auszug
           osmium tags-filter land.osm.pbf nwr/boundary=low_emission_zone -o lez.osm.pbf
-          osmium export lez.osm.pbf -f geojsonseq --geometry-types=polygon --add-unique-id=type_id -o lez.geojsonseq
-          python tools/build_lez.py country ${{ matrix.iso }} lez.geojsonseq lez-${{ matrix.iso }}.json
+          python tools/build_lez.py country ${{ matrix.iso }} lez.osm.pbf lez-${{ matrix.iso }}.json
           rm land.osm.pbf
           osmium export f.osm.pbf -f geojsonseq --add-unique-id=type_id -o f.geojsonseq
           python tools/build_poi_pack.py ${{ matrix.iso }} f.geojsonseq poi-${{ matrix.iso }}.json.gz

@@ -4,8 +4,7 @@ Umweltzonen (boundary=low_emission_zone) aus OpenStreetMap → lez.json.gz für 
 
 Schritt 1 je Land (im OSM-Paket-Job, aus dem bereits geladenen Geofabrik-Auszug):
   osmium tags-filter land.osm.pbf nwr/boundary=low_emission_zone -o lez.osm.pbf
-  osmium export lez.osm.pbf -f geojsonseq --geometry-types=polygon --add-unique-id=type_id -o lez.geojsonseq
-  python tools/build_lez.py country DE lez.geojsonseq lez-DE.json
+  python tools/build_lez.py country DE lez.osm.pbf lez-DE.json        (braucht pyosmium)
 
 Schritt 2 (alle Länder zusammenführen; Länder ohne neues Ergebnis behalten ihre bisherigen Zonen):
   python tools/build_lez.py merge <ordner mit lez-*.json> lez.json.gz
@@ -25,6 +24,11 @@ def rdp(pts, eps):
     """Douglas-Peucker: Polygon vereinfachen (≈50 m Toleranz reichen für eine Warnung völlig)."""
     if len(pts) < 4:
         return pts
+    if pts[0] == pts[-1]:
+        # geschlossener Ring: an dem vom Start am weitesten entfernten Punkt teilen (sonst ist die Bezugslinie ein Punkt)
+        k = max(range(len(pts)), key=lambda i: (pts[i][0] - pts[0][0]) ** 2 + (pts[i][1] - pts[0][1]) ** 2)
+        if 0 < k < len(pts) - 1:
+            return rdp(pts[:k + 1], eps)[:-1] + rdp(pts[k:], eps)
     stack, keep = [(0, len(pts) - 1)], {0, len(pts) - 1}
     while stack:
         a, b = stack.pop()
@@ -43,35 +47,101 @@ def rdp(pts, eps):
     return [pts[i] for i in sorted(keep)]
 
 
-def outer_rings(geom):
-    if geom["type"] == "Polygon":
-        return [geom["coordinates"][0]]
-    if geom["type"] == "MultiPolygon":
-        return [p[0] for p in geom["coordinates"]]
-    return []
+def join_rings(segments):
+    """Wege (Koordinatenlisten) an gemeinsamen Endpunkten zu geschlossenen Ringen verbinden."""
+    segs = [list(x) for x in segments if len(x) >= 2]
+    rings = []
+    while segs:
+        cur = segs.pop(0)
+        changed = True
+        while cur[0] != cur[-1] and changed:
+            changed = False
+            for i, sg in enumerate(segs):
+                if sg[0] == cur[-1]:
+                    cur += sg[1:]
+                elif sg[-1] == cur[-1]:
+                    cur += sg[::-1][1:]
+                elif sg[-1] == cur[0]:
+                    cur = sg[:-1] + cur
+                elif sg[0] == cur[0]:
+                    cur = sg[::-1][:-1] + cur
+                else:
+                    continue
+                segs.pop(i)
+                changed = True
+                break
+        if cur[0] == cur[-1] and len(cur) >= 4:
+            rings.append(cur)
+    return rings
+
+
+def read_osm(src):
+    """Zonen aus einer OSM-Datei (pbf/xml): geschlossene Wege und Relationen (Ringe selbst zusammengesetzt).
+    osmium export erzeugt aus boundary-Relationen keine Flächen – daher eigene, einfache Ring-Bildung."""
+    import osmium
+
+    class H(osmium.SimpleHandler):
+        def __init__(self):
+            super().__init__()
+            self.ways, self.wtags, self.rels = {}, {}, []
+
+        def way(self, w):
+            try:
+                self.ways[w.id] = [(round(n.lon, 6), round(n.lat, 6)) for n in w.nodes]
+            except osmium.InvalidLocationError:
+                return
+            if w.tags.get("boundary") == "low_emission_zone":
+                self.wtags[w.id] = dict(w.tags)
+
+        def relation(self, r):
+            if r.tags.get("boundary") == "low_emission_zone":
+                self.rels.append((r.id, dict(r.tags), [m.ref for m in r.members if m.type == "w" and m.role in ("outer", "")]))
+
+    h = H()
+    h.apply_file(src, locations=True)
+    used = set()
+    out = []
+    for rid, tags, members in h.rels:
+        rings = join_rings([h.ways[m] for m in members if m in h.ways])
+        used.update(members)
+        if rings:
+            out.append((f"r{rid}", tags, rings))
+    for wid, tags in h.wtags.items():
+        c = h.ways.get(wid)
+        if wid in used and not tags.get("name"):
+            continue          # unbenannter Teil einer Relation
+        if c and len(c) >= 4 and c[0] == c[-1]:
+            out.append((f"w{wid}", tags, [c]))
+    return out
 
 
 def country(iso, src, dst):
     zones = []
-    with open(src, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip().lstrip("\x1e")
-            if not line:
-                continue
-            ft = json.loads(line)
-            p = ft.get("properties", {})
-            rings = []
-            for ring in outer_rings(ft["geometry"]):
-                r = rdp([(c[0], c[1]) for c in ring], 0.0005)
-                if len(r) >= 4:
-                    rings.append([v for lon, lat in r for v in (round(lat, 5), round(lon, 5))])
-            if not rings:
-                continue
-            lats = [r[i] for r in rings for i in range(0, len(r), 2)]
-            lons = [r[i] for r in rings for i in range(1, len(r), 2)]
-            zones.append({"id": str(ft.get("id", "")), "c": iso, "n": p.get("name") or p.get("short_name") or "",
-                          "bb": [min(lats), min(lons), max(lats), max(lons)], "r": rings,
-                          "t": {k: p[k][:300] for k in KEEP if k in p}})
+    for oid, p, rings_raw in read_osm(src):
+        rings = []
+        for ring in rings_raw:
+            r = rdp(ring, 0.0005)
+            if len(r) >= 4:
+                rings.append([v for lon, lat in r for v in (round(lat, 5), round(lon, 5))])
+        if not rings:
+            continue
+        lats = [r[i] for r in rings for i in range(0, len(r), 2)]
+        lons = [r[i] for r in rings for i in range(1, len(r), 2)]
+        zones.append({"id": oid, "c": iso, "n": p.get("name") or p.get("short_name") or "",
+                      "bb": [min(lats), min(lons), max(lats), max(lons)], "r": rings,
+                      "t": {k: p[k][:300] for k in KEEP if k in p}})
+    # reine Lkw-/Mofa-/Rad-Zonen sind für Autos ohne Belang
+    zones = [z for z in zones if not re.search(r"LKW|Lkw|hgv|brom|snorfiets|Fahrrad", z["n"])]
+    # gleichnamige Teile (z. B. mehrere Flächen einer Stadt) zu einer Zone zusammenfassen
+    by = {}
+    for z in zones:
+        if z["n"] and z["n"] in by:
+            o = by[z["n"]]
+            o["r"] += z["r"]
+            o["bb"] = [min(o["bb"][0], z["bb"][0]), min(o["bb"][1], z["bb"][1]), max(o["bb"][2], z["bb"][2]), max(o["bb"][3], z["bb"][3])]
+        else:
+            by[z["n"] or z["id"]] = z
+    zones = list(by.values())
     # unbenannte Teilflächen weglassen, wenn eine benannte Zone dieselbe Gegend abdeckt
     named = [z for z in zones if z["n"]]
     def inside(a, b):
