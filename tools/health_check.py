@@ -15,6 +15,9 @@ sys.stdout.reconfigure(encoding="utf-8")
 UA = "RoutenBegleiter-Daten/1.0 (health check)"
 REPO = os.environ.get("GITHUB_REPOSITORY", "Kostasnik1/RoutenBegleiter-Daten")
 FFM, MUC = (50.1109, 8.6821), (48.1374, 11.5755)
+# Mindestgröße je Datei (KB) – fängt leere/abgeschnittene Pakete ab
+MIN_KB = {"fuel-ES.json.gz": 100, "fuel-PT.json.gz": 40, "fuel-HR.json.gz": 8, "fuel-FR.json.gz": 100, "countries.json": 20,
+          "vignettes.json": 3, "lez.json.gz": 20, "poi-DE.json.gz": 500}
 
 
 def fetch(url, data=None, headers=None, timeout=60):
@@ -162,6 +165,7 @@ def checks(cfg):
             need(a, "fehlt im Release")
             h = age_h(a["updated_at"])
             need(h <= max_h, f"{h:.0f} h alt (erlaubt {max_h} h)")
+            need(a["size"] >= MIN_KB.get(name, 1) * 1024, f"nur {a['size']} Bytes – leer/kaputt?")
             return f"{h:.0f} h alt, {a['size'] // 1024} KB"
         c[f"data.{name}"] = (label, asset)
 
