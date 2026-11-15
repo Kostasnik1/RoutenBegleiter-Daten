@@ -169,6 +169,15 @@ def checks(cfg):
             return f"{h:.0f} h alt, {a['size'] // 1024} KB"
         c[f"data.{name}"] = (label, asset)
 
+    def all_poi():
+        # Jedes Land einzeln: ein Land, dessen OSM-Download mehrmals scheiterte, behält sein altes Paket – hier fällt es auf.
+        poi = {n[4:6]: x for n, x in rel.items() if n.startswith("poi-") and n.endswith(".json.gz")}
+        need(len(poi) >= 30, f"nur {len(poi)} Länder")
+        old = sorted(f"{k} {age_h(x['updated_at']) / 24:.0f} T" for k, x in poi.items() if age_h(x["updated_at"]) > 24 * 70)
+        need(not old, "zu alt: " + ", ".join(old))
+        return f"{len(poi)} Länder, alle jünger als 70 Tage"
+    c["data.poi-all"] = ("Toiletten-Pakete (alle Länder)", all_poi)
+
     def overpass():
         q = '[out:json][timeout:25];node["amenity"="toilets"](50.10,8.67,50.12,8.69);out 1;'
         errs = []
