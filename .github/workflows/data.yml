@@ -113,11 +113,11 @@ jobs:
           get() { curl -sSfL --retry 2 --retry-all-errors --retry-delay 15 --speed-limit 100000 --speed-time 120 -o land.osm.pbf "$@"; }
           overpass() {
             # genau die Objekte, die „Filtern und Pakete bauen“ braucht – kleine Abfrage, damit Overpass sie annimmt
-            Q='[out:xml][timeout:900][maxsize:1073741824];area["ISO3166-1"="${{ matrix.iso }}"]["admin_level"="2"]->.a;(nwr(area.a)["amenity"~"^(toilets|fast_food|charging_station)$"];nwr(area.a)["highway"~"^(rest_area|services)$"];nwr(area.a)["toilets:fee"="no"];node(area.a)["highway"="speed_camera"];nwr(area.a)["boundary"="low_emission_zone"];);(._;>;);out;'
+            Q='[out:xml][timeout:540][maxsize:1073741824];area["ISO3166-1"="${{ matrix.iso }}"]["admin_level"="2"]->.a;(nwr(area.a)["amenity"~"^(toilets|fast_food|charging_station)$"];nwr(area.a)["highway"~"^(rest_area|services)$"];nwr(area.a)["toilets:fee"="no"];node(area.a)["highway"="speed_camera"];nwr(area.a)["boundary"="low_emission_zone"];);(._;>;);out;'
             # Overpass ist oft kurz überlastet (502/504) → zwei Runden mit Pause
             for ep in https://overpass-api.de/api/interpreter https://overpass.private.coffee/api/interpreter https://overpass.kumi.systems/api/interpreter                       https://overpass-api.de/api/interpreter https://overpass.private.coffee/api/interpreter; do
               echo "Overpass: $ep"
-              if curl -sSf -m 1800 -A "RoutenBegleiter-Daten (github.com/${{ github.repository }})" --data-urlencode "data=$Q" -o land.osm "$ep"                  && head -c 400 land.osm | grep -q "<osm" && grep -q "<node" land.osm; then
+              if curl -sSf -m 600 -A "RoutenBegleiter-Daten (github.com/${{ github.repository }})" --data-urlencode "data=$Q" -o land.osm "$ep"                  && head -c 400 land.osm | grep -q "<osm" && grep -q "<node" land.osm; then
                 osmium cat land.osm -o land.osm.pbf --overwrite && return 0
               fi
               sleep 90
