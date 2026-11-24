@@ -13,6 +13,7 @@ Automatisch erzeugte, öffentliche Daten für die private App *RoutenBegleiter*.
 | `fuel-PT.json.gz` | Spritpreise je Tankstelle | DGEG – Direção-Geral de Energia e Geologia | alle 3 h |
 | `fuel-HR.json.gz` | Spritpreise je Tankstelle | Ministarstvo gospodarstva RH | alle 3 h |
 | `fuel-FR.json.gz` | Spritpreise je Tankstelle (Ersatz, falls die Live-Abfrage ausfällt) | prix-carburants, Ministère de l'Économie (Licence Ouverte 2.0) | alle 3 h |
+| `cameras-XX.json.gz` | Blitzer-Standorte je Land (fest, Abschnittskontrolle, Rotlicht; nur in OSM eingetragene mobile Messstellen) | © OpenStreetMap-Mitwirkende, ODbL 1.0 (Overpass) | täglich |
 | `lez.json.gz` | Umweltzonen (Umweltplakette, Crit'Air, LEZ …) | © OpenStreetMap-Mitwirkende, ODbL 1.0 | monatlich |
 | `config.json` | Fernsteuerung: Adressen der Quellen, abgeschaltete Quellen, Hinweis an die App | von Hand (`data/config.json`) | bei Änderung |
 | `health.json` | Ergebnis des täglichen Gesundheits-Checks aller Quellen | `tools/health_check.py` | täglich |

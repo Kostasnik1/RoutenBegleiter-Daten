@@ -1,0 +1,36 @@
+name: Blitzer-Standorte
+
+# Täglich: feste Blitzer, Abschnittskontrollen und Rotlichtblitzer je Land aus OpenStreetMap (kleine Pakete cameras-XX.json.gz).
+# Die App entscheidet selbst, wie oft sie sie lädt (täglich bis monatlich, einstellbar).
+# Bewegliche Polizeikontrollen gibt es nicht als offene Daten – hier sind nur eingetragene Standorte enthalten.
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+    inputs:
+      nur:
+        description: "Nur diese Länder (z. B. DE,AT) – leer = alle"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency: { group: cameras, cancel-in-progress: false }
+
+jobs:
+  cameras:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with: { sparse-checkout: tools }
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12" }
+      - name: Pakete bauen
+        run: python tools/build_camera_packs.py out $(echo "${{ inputs.nur }}" | tr ',' ' ')
+      - name: Ins Release "data"
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view data >/dev/null 2>&1 || gh release create data --title "Daten" --notes "Automatisch erzeugte Daten für die App RoutenBegleiter"
+          gh release upload data out/cameras-*.json.gz --clobber
