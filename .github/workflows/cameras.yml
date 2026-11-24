@@ -21,7 +21,7 @@ concurrency: { group: cameras, cancel-in-progress: false }
 jobs:
   cameras:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 100
     steps:
       - uses: actions/checkout@v7
         with: { sparse-checkout: tools }
@@ -30,6 +30,7 @@ jobs:
       - name: Pakete bauen
         run: python tools/build_camera_packs.py out $(echo "${{ inputs.nur }}" | tr ',' ' ')
       - name: Ins Release "data"
+        if: always()    # auch bei Zeitüberschreitung hochladen, was schon fertig ist
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           gh release view data >/dev/null 2>&1 || gh release create data --title "Daten" --notes "Automatisch erzeugte Daten für die App RoutenBegleiter"

@@ -14,29 +14,26 @@ import datetime, gzip, json, os, re, sys, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import guard
 
-COUNTRIES = ("DE AT CH LI FR IT ES PT NL BE LU DK PL CZ SK HU SI HR BA RS ME AL MK GR BG RO MD TR GB IE NO SE FI EE LV LT").split()
+COUNTRIES = ("DE AT CH LI FR IT ES NL BE LU PL CZ SK HU SI HR DK PT GR BG RO RS BA ME AL MK MD TR GB IE NO SE FI EE LV LT").split()
 ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter",
              "https://overpass.kumi.systems/api/interpreter"]
 UA = "RoutenBegleiter-Daten (github.com/" + os.environ.get("GITHUB_REPOSITORY", "Kostasnik1/RoutenBegleiter-Daten") + ")"
 
 
 def query(iso):
-    q = ('[out:json][timeout:240];area["ISO3166-1"="%s"]["admin_level"="2"]->.a;'
+    q = ('[out:json][timeout:100];area["ISO3166-1"="%s"]["admin_level"="2"]->.a;'
          'node(area.a)["highway"="speed_camera"];out;' % iso)
     last = None
-    for rnd in range(2):
-        for ep in ENDPOINTS:
-            try:
-                req = urllib.request.Request(ep, data=urllib.parse.urlencode({"data": q}).encode(), headers={"User-Agent": UA})
-                body = urllib.request.urlopen(req, timeout=300).read()
-                o = json.loads(body)
-                if "elements" in o:
-                    return o["elements"]
-            except Exception as e:
-                last = e
-                print(f"  {iso}: {ep}: {e}", flush=True)
-            time.sleep(10)
-        time.sleep(60)
+    for ep in ENDPOINTS:
+        try:
+            req = urllib.request.Request(ep, data=urllib.parse.urlencode({"data": q}).encode(), headers={"User-Agent": UA})
+            o = json.loads(urllib.request.urlopen(req, timeout=130).read())
+            if "elements" in o:
+                return o["elements"]
+        except Exception as e:
+            last = e
+            print(f"  {iso}: {ep}: {e}", flush=True)
+        time.sleep(5)
     raise RuntimeError(f"{iso}: Overpass nicht erreichbar ({last})")
 
 
@@ -77,12 +74,17 @@ if __name__ == "__main__":
     os.makedirs(out, exist_ok=True)
     want = sys.argv[2:] or COUNTRIES
     done = 0
+    budget = float(os.environ.get("BUDGET_MIN", "75")) * 60
+    t0 = time.time()
     for i, iso in enumerate(want):
+        if time.time() - t0 > budget:
+            print(f"::warning::Zeitbudget erreicht – übrige Länder ({' '.join(want[i:])}) kommen beim nächsten Lauf", flush=True)
+            break
         try:
             done += bool(build(iso, out))
         except Exception as e:
             print(f"::warning::{iso}: {e}", flush=True)
-        time.sleep(20)   # Overpass schonen
+        time.sleep(8)   # Overpass schonen
     print(f"{done} von {len(want)} Paketen gebaut")
     if done == 0:
         sys.exit("kein Paket gebaut")
