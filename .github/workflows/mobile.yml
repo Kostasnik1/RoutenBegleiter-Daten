@@ -1,0 +1,31 @@
+name: Polizei-Messstellen
+
+# Täglich: angekündigte Geschwindigkeitskontrollen aus amtlichen Polizei-Quellen (Saarland, Kanton St.Gallen, Kanton Solothurn)
+# → mobile.json.gz. Nur Straße/Ort stehen in den Quellen; die Koordinaten werden über OpenStreetMap ermittelt (Genauigkeit: einige hundert Meter).
+on:
+  schedule:
+    - cron: "37 5 * * *"
+    - cron: "37 11 * * 2"    # Dienstag mittags: das Saarland veröffentlicht die Wochenvorschau meist dienstags
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: { group: mobile, cancel-in-progress: false }
+
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+        with: { sparse-checkout: tools }
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12" }
+      - name: Messstellen holen
+        run: python tools/build_mobile_checks.py out
+      - name: Ins Release "data"
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view data >/dev/null 2>&1 || gh release create data --title "Daten" --notes "Automatisch erzeugte Daten für die App RoutenBegleiter"
+          gh release upload data out/mobile.json.gz out/geocache.json --clobber
