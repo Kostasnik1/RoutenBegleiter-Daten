@@ -7,7 +7,7 @@ Automatisch erzeugte, öffentliche Daten für die private App *RoutenBegleiter*.
 |---|---|---|---|
 | `countries.json` | Tempolimits, Durchschnitts-Spritpreise, Vignetten, Streckenmaut (nur Zahlen/Preise) | ADAC (adac.de) | monatlich |
 | `vignettes.json` | Vignetten-Optionen für die Kostenrechnung | ADAC (adac.de) | monatlich |
-| `poi-XX.json.gz` | Toiletten, Rastplätze, Fast-Food je Land | © OpenStreetMap-Mitwirkende, ODbL 1.0 (über Geofabrik) | monatlich |
+| `poi-XX.json.gz` | Toiletten, Rastplätze, Fast-Food je Land und Blitzer-Standorte (`highway=speed_camera`, mit Art/Tempolimit) | © OpenStreetMap-Mitwirkende, ODbL 1.0 (über Geofabrik) | monatlich |
 | `fuel-ES.json.gz` | Spritpreise je Tankstelle | Ministerio para la Transición Ecológica | alle 3 h |
 | (Italien) | Spritpreise je Tankstelle | MIMIT – Osservatorio prezzi carburanti (IODL 2.0) | lädt die App direkt (mimit.gov.it sperrt GitHub-Server) |
 | `fuel-PT.json.gz` | Spritpreise je Tankstelle | DGEG – Direção-Geral de Energia e Geologia | alle 3 h |

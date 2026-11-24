@@ -17,7 +17,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import guard
 
 KEEP = ["name", "brand", "operator", "fee", "toilets:fee", "toilets", "toilets:wheelchair", "amenity", "highway",
-        "opening_hours", "wheelchair", "access", "charge", "maxspeed", "changing_table"]
+        "opening_hours", "wheelchair", "access", "charge", "maxspeed", "changing_table",
+        # Blitzer-Warnung der App: Art des Standorts und Richtung
+        "enforcement", "camera:type", "direction", "camera:direction"]
 CHAINS = re.compile(r"mcdonald|burger king", re.I)
 GASTRO = {"restaurant", "cafe", "fast_food", "pub", "bar", "biergarten"}
 
