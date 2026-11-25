@@ -4,8 +4,7 @@ name: Polizei-Messstellen
 # → mobile.json.gz. Nur Straße/Ort stehen in den Quellen; die Koordinaten werden über OpenStreetMap ermittelt (Genauigkeit: einige hundert Meter).
 on:
   schedule:
-    - cron: "37 5 * * *"
-    - cron: "37 11 * * 2"    # Dienstag mittags: das Saarland veröffentlicht die Wochenvorschau meist dienstags
+    - cron: "37 3,9,15,21 * * *"   # mehrmals täglich: das Saarland veröffentlicht die Wochenvorschau meist dienstags
   workflow_dispatch:
 
 permissions:

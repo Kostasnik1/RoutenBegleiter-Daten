@@ -1,11 +1,11 @@
 name: Blitzer-Standorte
 
-# Täglich: feste Blitzer, Abschnittskontrollen und Rotlichtblitzer je Land aus OpenStreetMap (kleine Pakete cameras-XX.json.gz).
+# Alle 6 Stunden (jedes Land spätestens am nächsten Tag): feste Blitzer, Abschnittskontrollen und Rotlichtblitzer je Land aus OpenStreetMap (kleine Pakete cameras-XX.json.gz).
 # Die App entscheidet selbst, wie oft sie sie lädt (täglich bis monatlich, einstellbar).
 # Bewegliche Polizeikontrollen gibt es nicht als offene Daten – hier sind nur eingetragene Standorte enthalten.
 on:
   schedule:
-    - cron: "23 4 * * *"
+    - cron: "23 1,7,13,19 * * *"
   workflow_dispatch:
     inputs:
       nur:

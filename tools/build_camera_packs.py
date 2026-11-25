@@ -73,6 +73,11 @@ if __name__ == "__main__":
     out = sys.argv[1]
     os.makedirs(out, exist_ok=True)
     want = sys.argv[2:] or COUNTRIES
+    if not sys.argv[2:]:
+        # Reihenfolge rotiert mit jedem Lauf (alle 6 Stunden eine andere Startposition), damit auch bei Zeitbudget
+        # und überlastetem Overpass jedes Land regelmäßig drankommt
+        k = (int(time.time() // 21600) * 9) % len(want)
+        want = want[k:] + want[:k]
     done = 0
     budget = float(os.environ.get("BUDGET_MIN", "75")) * 60
     t0 = time.time()
